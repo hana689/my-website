@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanat Araştırmaları | Sanat Dünyası</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --background-color: #f9f9f9;
+            --text-color: #2d3436;
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f5e6e8 0%, #d0e6f6 50%, #f6f1d0 100%), url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            background-blend-mode: lighten;
+            background-size: cover, auto;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+            transition: background 0.3s;
+        }
+
+        .navbar-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .navbar-logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .navbar-menu a:hover {
+            background: rgba(44,62,80,0.15);
+            color: var(--secondary-color);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 90px auto 0;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .research-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .research-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .research-header p {
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .main-content {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-post {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .research-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-post-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .research-post-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .research-post:hover .research-post-title {
+            color: var(--secondary-color);
+        }
+
+        .research-post-excerpt {
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .research-tag {
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+
+        .research-tag:hover {
+            background: rgba(108, 92, 231, 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .research-header h1 {
+                font-size: 2rem;
+            }
+
+            .research-header p {
+                font-size: 1rem;
+            }
+
+            .research-post {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">Sanat Dünyası</a>
+            <div class="navbar-menu">
+                <a href="klasik-sanat.html">Klasik Sanat</a>
+                <a href="dijital-sanat.html">Dijital Sanat</a>
+                <a href="sanatcilar.html">Sanatçılar</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="teknikler.html">Sanat Teknikleri</a>
+                <a href="blog.html">Blog</a>
+                <a href="arastirma.html">Araştırmalar</a>
+                <a href="kaynaklar.html">Kaynaklar</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="research-container">
+        <header class="research-header">
+            <h1>Sanat Araştırmaları</h1>
+            <p>Sanatın Sınırlarını Keşfetmek, Teknoloji ve Gelenekle Yolculuk</p>
+        </header>
+
+        <main class="main-content">
+            <article class="research-post">
+                <div class="research-post-content">
+                    <h2 class="research-post-title">Klasik ve Dijital Sanatın Kesişimi</h2>
+                    <p class="research-post-excerpt">Geleneksel sanat tekniklerinin dijital ortama aktarımı ve yeni sanat formlarının oluşumu.</p>
+                    <div class="research-tags">
+                        <span class="research-tag">Klasik Sanat</span>
+                        <span class="research-tag">Dijital Sanat</span>
+                        <span class="research-tag">Teknoloji</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="research-post">
+                <div class="research-post-content">
+                    <h2 class="research-post-title">Sanat Eserlerinin Dijital Korunması</h2>
+                    <p class="research-post-excerpt">Klasik sanat eserlerinin dijital ortamda korunması ve gelecek nesillere aktarımı.</p>
+                    <div class="research-tags">
+                        <span class="research-tag">Koruma</span>
+                        <span class="research-tag">Dijital Arşiv</span>
+                        <span class="research-tag">Kültürel Miras</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="research-post">
+                <div class="research-post-content">
+                    <h2 class="research-post-title">Sanat ve Teknoloji İlişkisi</h2>
+                    <p class="research-post-excerpt">Teknolojik gelişmelerin sanat üretimine ve tüketimine etkileri.</p>
+                    <div class="research-tags">
+                        <span class="research-tag">Teknoloji</span>
+                        <span class="research-tag">Sanat Tarihi</span>
+                        <span class="research-tag">Modern Sanat</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

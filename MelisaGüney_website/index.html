@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanat tarihi, klasik sanat ve dijital sanat hakkında kapsamlı bilgiler, araştırmalar ve blog yazıları. Sanat dünyasının geçmişi ve geleceği hakkında detaylı içerikler.">
+    <meta name="keywords" content="sanat tarihi, klasik sanat, dijital sanat, rönesans, modern sanat, sanat blog, sanat araştırmaları, sanatçılar, galeri, sanat teknikleri">
+    <title>Sanat Tarihi - Klasik ve Dijital Sanat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <nav class="hidden-nav">
+        <div class="hidden-nav-content">
+            <div class="hidden-nav-links">
+                <a href="klasik-sanat.html">Klasik Sanat</a>
+                <a href="dijital-sanat.html">Dijital Sanat</a>
+                <a href="sanatcilar.html">Sanatçılar</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="teknikler.html">Sanat Teknikleri</a>
+                <a href="blog.html">Blog</a>
+                <a href="arastirma.html">Araştırmalar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="creative-title">Sanat dünyasında bir yolculuğa çıkmak ister misiniz?</h1>
+            <div class="button-group">
+                <button class="animated-button" id="klasikSanat">Klasik Sanat</button>
+                <button class="animated-button" id="dijitalSanat">Dijital Sanat</button>
+            </div>
+            <div class="scroll-indicator" id="scrollIndicator">↓</div>
+        </div>
+
+        <div class="content-sections">
+            <section id="blog" class="section">
+                <h2>Blog Yazıları</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <img src="https://cdn.qukasoft.com/f/377355/bzR6WmFtNG0vcUp3ZTJGdEg4OXJKYjBQSVl5OA/m/son-aksam-yemegi-tablosu-sanatin-efsanevi-sahnesi-47084950.webp" alt="Son Akşam Yemeği Analizi">
+                        <h3>Son Akşam Yemeği'nin Gizli Sembolleri</h3>
+                        <p>Leonardo da Vinci'nin başyapıtındaki gizli mesajları ve sembolik anlamları keşfedin.</p>
+                        <span class="date">15 Mart 2024</span>
+                    </article>
+                    <article class="blog-card">
+                        <img src="https://vogue.com.tr/static/img/article_detail/21-06/21/everydays-acilisa-koyabiliriz-1624307075.jpg" alt="NFT Sanat">
+                        <h3>NFT'ler ve Sanatın Geleceği</h3>
+                        <p>Dijital sanatın yeni boyutu: NFT'lerin sanat dünyasına etkileri ve gelecekteki rolü.</p>
+                        <span class="date">12 Mart 2024</span>
+                    </article>
+                    <article class="blog-card">
+                        <img src="https://www.artfulliving.com.tr/image_data/content_m/04f3605278f69b5cf15edbec51be485a.jpg" alt="Yapay Zeka ve Sanat">
+                        <h3>Yapay Zeka ve Sanatın Dönüşümü</h3>
+                        <p>Yapay zeka teknolojilerinin sanat üretimine etkileri ve yeni sanat formları.</p>
+                        <span class="date">10 Mart 2024</span>
+                    </article>
+                </div>
+            </section>
+
+            <section id="arastirmalar" class="section">
+                <h2>Araştırmalar</h2>
+                <div class="research-grid">
+                    <article class="research-card">
+                        <h3>Klasik ve Dijital Sanatın Kesişimi</h3>
+                        <p>Geleneksel sanat tekniklerinin dijital ortama aktarımı ve yeni sanat formlarının oluşumu.</p>
+                        <div class="tags">
+                            <span class="tag">Klasik Sanat</span>
+                            <span class="tag">Dijital Sanat</span>
+                            <span class="tag">Teknoloji</span>
+                        </div>
+                    </article>
+                    <article class="research-card">
+                        <h3>Sanat Eserlerinin Dijital Korunması</h3>
+                        <p>Klasik sanat eserlerinin dijital ortamda korunması ve gelecek nesillere aktarımı.</p>
+                        <div class="tags">
+                            <span class="tag">Koruma</span>
+                            <span class="tag">Dijital Arşiv</span>
+                            <span class="tag">Kültürel Miras</span>
+                        </div>
+                    </article>
+                    <article class="research-card">
+                        <h3>Sanat ve Teknoloji İlişkisi</h3>
+                        <p>Teknolojik gelişmelerin sanat üretimine ve tüketimine etkileri.</p>
+                        <div class="tags">
+                            <span class="tag">Teknoloji</span>
+                            <span class="tag">Sanat Tarihi</span>
+                            <span class="tag">Modern Sanat</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="scroll-to-top">↓</div>
+
+    <script>
+        // Hidden Navigation
+        const hiddenNav = document.querySelector('.hidden-nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                hiddenNav.classList.add('visible');
+            } else {
+                hiddenNav.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Scroll Indicator
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        let isScrollingToContent = false;
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            if (scrollPosition > windowHeight * 0.3) {
+                scrollIndicator.textContent = '↑';
+            } else {
+                scrollIndicator.textContent = '↓';
+            }
+        });
+
+        scrollIndicator.addEventListener('click', () => {
+            if (isScrollingToContent) return;
+            isScrollingToContent = true;
+
+            const contentSections = document.querySelector('.content-sections');
+            const contentPosition = contentSections.offsetTop;
+            const currentPosition = window.pageYOffset;
+
+            const targetPosition = currentPosition > window.innerHeight * 0.3 ? 0 : contentPosition;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isScrollingToContent = false;
+            }, 1000);
+        });
+
+        // Scroll to Top Button
+        const scrollButton = document.querySelector('.scroll-to-top');
+        let isScrolling = false;
+
+        window.addEventListener('load', updateScrollButton);
+        window.addEventListener('scroll', updateScrollButton);
+
+        function updateScrollButton() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollPosition === 0) {
+                scrollButton.textContent = '↓';
+                scrollButton.classList.add('visible');
+            }
+            else if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollButton.textContent = '↑';
+                scrollButton.classList.add('visible');
+            }
+            else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition === 0 ? document.body.scrollHeight : 0;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+
+        // Button Navigation
+        document.getElementById('klasikSanat').addEventListener('click', () => {
+            window.location.href = 'klasik-sanat.html';
+        });
+
+        document.getElementById('dijitalSanat').addEventListener('click', () => {
+            window.location.href = 'dijital-sanat.html';
+        });
+
+        // Body Background Hover Effect
+        const body = document.body;
+        const klasikSanatBtn = document.getElementById('klasikSanat');
+        const dijitalSanatBtn = document.getElementById('dijitalSanat');
+        const backgroundShapes = document.querySelector('.background-shapes');
+
+        klasikSanatBtn.addEventListener('mouseenter', () => {
+            backgroundShapes.style.background = 'linear-gradient(45deg, #800020, #000000)';
+            backgroundShapes.style.animation = 'none';
+        });
+
+        klasikSanatBtn.addEventListener('mouseleave', () => {
+            backgroundShapes.style.background = '';
+            backgroundShapes.style.animation = '';
+        });
+
+        dijitalSanatBtn.addEventListener('mouseenter', () => {
+            backgroundShapes.style.background = 'linear-gradient(45deg, #1a1a2e, #16213e)';
+            backgroundShapes.style.animation = 'none';
+        });
+
+        dijitalSanatBtn.addEventListener('mouseleave', () => {
+            backgroundShapes.style.background = '';
+            backgroundShapes.style.animation = '';
+        });
+    </script>
+</body>
+</html> 

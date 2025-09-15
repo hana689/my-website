@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Klasik sanatın tarihçesi, önemli sanatçıları ve eserleri hakkında detaylı bilgiler. Rönesans'tan günümüze klasik sanatın evrimi.">
+    <meta name="keywords" content="klasik sanat, rönesans, barok, klasisizm, romantizm, sanat tarihi, resim, heykel, mimari">
+    <title>Klasik Sanat - Tarihçe, Sanatçılar ve Eserler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #800020;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(45deg, #800020, #000000);
+        }
+
+        .cube {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            animation: float 20s infinite linear;
+            backdrop-filter: blur(5px);
+        }
+
+        .cube:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+            transform: rotate(45deg);
+        }
+
+        .cube:nth-child(2) {
+            top: 55%;
+            left: 75%;
+            animation-delay: 7s;
+            transform: rotate(-30deg);
+        }
+
+        .cube:nth-child(3) {
+            top: 35%;
+            left: 40%;
+            animation-delay: 14s;
+            transform: rotate(15deg);
+        }
+
+        .cube:nth-child(4) {
+            top: 70%;
+            left: 25%;
+            animation-delay: 3s;
+            transform: rotate(-45deg);
+        }
+
+        .cube:nth-child(5) {
+            top: 25%;
+            left: 65%;
+            animation-delay: 10s;
+            transform: rotate(60deg);
+        }
+
+        @keyframes float {
+            0% {
+                transform: rotate(0deg) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: rotate(90deg) translateY(-20px) scale(1.1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: rotate(180deg) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            75% {
+                transform: rotate(270deg) translateY(20px) scale(0.9);
+                opacity: 0.5;
+            }
+            100% {
+                transform: rotate(360deg) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e6e6e6;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-date {
+            color: #ffffff;
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .artwork-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .artwork-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .artwork-item img {
+            max-width: 100%;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+            object-fit: cover;
+            aspect-ratio: 1;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .artwork-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .artwork-item h3 {
+            color: #ffffff;
+            margin: 10px 0;
+            font-style: italic;
+            font-size: 1.3em;
+        }
+        .artwork-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .artwork-item a:hover {
+            text-decoration: none;
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 0.5;
+        }
+
+        .scroll-to-top:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+        }
+
+        .navigation-menu {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navigation-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .navigation-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 20px;
+            }
+
+            .artwork-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation-menu {
+                position: static;
+                transform: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 20px auto;
+                width: 90%;
+                border-radius: 15px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .cube {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <a href="index.html" class="back-button">←</a>
+
+    <div class="navigation-menu">
+        <a href="#tarihce">Tarihçe</a>
+        <a href="#donemler">Dönemler</a>
+        <a href="#sanatcilar">Sanatçılar</a>
+        <a href="#eserler">Eserler</a>
+        <a href="#etkiler">Modern Etkiler</a>
+    </div>
+
+    <div class="page-content">
+        <h1>Klasik Sanat</h1>
+
+        <section id="tarihce" class="content-section">
+            <h2 class="section-title">Klasik Sanatın Tarihçesi</h2>
+            <p>Klasik sanat, Antik Yunan ve Roma dönemlerinden başlayarak günümüze kadar uzanan zengin bir tarihe sahiptir. Bu uzun yolculukta, her dönem kendine özgü teknikler, stiller ve felsefeler geliştirmiştir. Sanatın evrimi, toplumların değişimiyle paralel olarak ilerlemiş, her dönem kendinden sonraki dönemlere ilham kaynağı olmuştur.</p>
+            <p>Antik Yunan'da sanat, ideal güzelliği ve mükemmelliği yakalamayı hedeflerken, Roma döneminde daha gerçekçi ve detaylı bir yaklaşım benimsenmiştir. Orta Çağ'da dini temalar ön plana çıkmış, Rönesans ile birlikte ise insan merkezli bir sanat anlayışı gelişmiştir.</p>
+        </section>
+
+        <section id="donemler" class="content-section">
+            <h2 class="section-title">Önemli Dönemler</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">M.Ö. 5. Yüzyıl</div>
+                        <h3>Antik Yunan Dönemi</h3>
+                        <p>İdeal güzellik ve mükemmel oranların arayışı, klasik sanatın temellerini oluşturdu. Parthenon ve diğer Yunan tapınakları bu dönemin en önemli eserleridir. Yunan sanatı, insan vücudunun mükemmel oranlarını araştırmış, matematiksel kesinlik ve estetik uyum peşinde koşmuştur.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14-17. Yüzyıl</div>
+                        <h3>Rönesans</h3>
+                        <p>İnsan merkezli düşünce ve doğa gözlemi, sanatta yeni bir dönemi başlattı. Leonardo da Vinci, Michelangelo ve Raphael gibi ustalar bu döneme damgasını vurdu. Perspektif tekniğinin keşfi, sanatta devrim yaratmış, üç boyutlu gerçekçi tasvirlerin önünü açmıştır.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">17-18. Yüzyıl</div>
+                        <h3>Barok Dönemi</h3>
+                        <p>Barok sanat, dramatik ışık-gölge kullanımı, hareket ve duygu dolu kompozisyonlarıyla tanınır. Caravaggio'nun tenebrizm tekniği, Rembrandt'ın ışık kullanımı, Bernini'nin dinamik heykelleri bu dönemin öne çıkan özellikleridir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sanatcilar" class="content-section">
+            <h2>Önemli Sanatçılar</h2>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <a href="leonardo.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Leonardo_self.jpg" alt="Leonardo da Vinci" loading="lazy">
+                    <h3>Leonardo da Vinci</h3>
+                    <p>Rönesans'ın en önemli sanatçılarından biri olan Leonardo da Vinci, hem resim hem de bilim alanında çığır açan eserler vermiştir.</p>
+                    </a>
+                </div>
+                <div class="artwork-item">
+                    <a href="michelangelo.html">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHpBK1chr7_f7GGldnf0fdaWRUaJ00wstIAA&sg" alt="Michelangelo" loading="lazy">
+                    <h3>Michelangelo</h3>
+                    <p>Heykel ve resim sanatında benzersiz eserler veren Michelangelo, insan vücudunun anatomik yapısını mükemmel şekilde yansıtmıştır.</p>
+                </a>
+                </div>
+                <div class="artwork-item">
+                    <a href="raphael.html">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyyBhf8YpQPeZTcomaThrYRYcEBVLC0hjCJA&s" alt="Raphael" loading="lazy">
+                    <h3>Raphael</h3>
+                    <p>Rönesans'ın zarif ve dengeli kompozisyonlarıyla tanınan sanatçısı Raphael, dini temaları modern bir yaklaşımla ele almıştır.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="eserler" class="content-section">
+            <h2>Önemli Eserler</h2>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">
+                    <h3>Mona Lisa</h3>
+                    <p>Leonardo da Vinci'nin en ünlü eseri olan Mona Lisa, portre sanatının başyapıtlarından biridir.</p>
+                </div>
+                <div class="artwork-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0529/5154/8060/files/1_480x480.jpg?v=1655720681" alt="David" loading="lazy">
+                    <h3>David</h3>
+                    <p>Michelangelo'nun mermerden yaptığı David heykeli, insan vücudunun mükemmel oranlarını yansıtır.</p>
+                </div>
+                <div class="artwork-item">
+                    <img src="https://imgadcip.wikioo.org/ADC/Art-ImgScreen-1.nsf/O/A-5ZKEBX/$FILE/Raphael-raffaello-sanzio-da-urbino-la-donna-velata.Jpg" alt="Sistine Şapeli" loading="lazy">
+                    <h3>La velata</h3>
+                    <p>La velata veya La donna velata ("Örtülü kadın"), İtalyan Rönesans ressamı Raphael'in en meşhur tablolarından biridir.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="etkiler" class="content-section">
+            <h2>Modern Sanata Etkileri</h2>
+            <p>Klasik sanat, modern sanatın temellerini oluşturmuş ve günümüz sanatçılarına ilham kaynağı olmaya devam etmektedir. Özellikle anatomi, perspektif ve kompozisyon konularındaki prensipler, çağdaş sanat eğitiminin temelini oluşturur.</p>
+            <p>Modern sanatçılar, klasik sanatın tekniklerini ve prensiplerini kendi yorumlarıyla birleştirerek yeni formlar yaratmaktadır. Bu durum, sanatın sürekli evrimini ve klasik değerlerin önemini gösterir.</p>
+        </section>
+    </div>
+
+    <div class="scroll-to-top">↓</div>
+
+    <script>
+        const scrollButton = document.querySelector('.scroll-to-top');
+        let isScrolling = false;
+
+        window.addEventListener('load', updateScrollButton);
+        window.addEventListener('scroll', updateScrollButton);
+
+        function updateScrollButton() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollPosition === 0) {
+                scrollButton.textContent = '↓';
+                scrollButton.classList.add('visible');
+            }
+            else if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollButton.textContent = '↑';
+                scrollButton.classList.add('visible');
+            }
+            else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition === 0 ? document.body.scrollHeight : 0;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+
+        document.querySelectorAll('.navigation-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html> 

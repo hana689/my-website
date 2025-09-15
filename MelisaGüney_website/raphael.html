@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raphael'in hayatı, eserleri ve sanat anlayışı hakkında detaylı bilgiler.">
+    <meta name="keywords" content="Raphael, Rönesans, Atina Okulu, Madonna, sanat tarihi">
+    <title>Raphael - Hayatı ve Eserleri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #800020;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(45deg, #800020, #000000);
+        }
+
+        .cube {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            animation: float 20s infinite linear;
+            backdrop-filter: blur(5px);
+        }
+
+        .cube:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; transform: rotate(45deg); }
+        .cube:nth-child(2) { top: 55%; left: 75%; animation-delay: 7s; transform: rotate(-30deg); }
+        .cube:nth-child(3) { top: 35%; left: 40%; animation-delay: 14s; transform: rotate(15deg); }
+        .cube:nth-child(4) { top: 70%; left: 25%; animation-delay: 3s; transform: rotate(-45deg); }
+        .cube:nth-child(5) { top: 25%; left: 65%; animation-delay: 10s; transform: rotate(60deg); }
+
+        @keyframes float {
+            0% { transform: rotate(0deg) translateY(0) scale(1); opacity: 0.3; }
+            25% { transform: rotate(90deg) translateY(-20px) scale(1.1); opacity: 0.5; }
+            50% { transform: rotate(180deg) translateY(0) scale(1); opacity: 0.3; }
+            75% { transform: rotate(270deg) translateY(20px) scale(0.9); opacity: 0.5; }
+            100% { transform: rotate(360deg) translateY(0) scale(1); opacity: 0.3; }
+        }
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e6e6e6;
+            margin-bottom: 20px;
+        }
+
+        .artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .artwork-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .artwork-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .artwork-item img {
+            max-width: 100%;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+            object-fit: cover;
+            aspect-ratio: 1;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .artwork-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .artwork-item h3 {
+            color: #ffffff;
+            margin: 10px 0;
+            font-style: italic;
+            font-size: 1.3em;
+        }
+
+        .artwork-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .artwork-item a:hover {
+            text-decoration: none;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 0.5;
+        }
+
+        .scroll-to-top:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+        }
+
+        .navigation-menu {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navigation-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .navigation-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 20px;
+            }
+
+            .artwork-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation-menu {
+                position: static;
+                transform: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 20px auto;
+                width: 90%;
+                border-radius: 15px;
+            }
+
+            .cube {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <a href="klasik-sanat.html" class="back-button">←</a>
+
+    <div class="navigation-menu">
+        <a href="#hayat">Hayatı</a>
+        <a href="#eserler">Eserleri</a>
+        <a href="#teknik">Teknikleri</a>
+        <a href="#etki">Etkileri</a>
+    </div>
+
+    <div class="page-content">
+        <h1>Raphael</h1>
+
+        <section id="hayat" class="content-section">
+            <h2>Hayatı</h2>
+            <p>Raffaello Sanzio da Urbino, 6 Nisan 1483'te İtalya'nın Urbino kentinde dünyaya geldi. Rönesans döneminin en önemli ressamlarından biri olan Raphael, zarif ve dengeli kompozisyonlarıyla tanınır.</p>
+            <p>Genç yaşta babası Giovanni Santi'nin yanında sanat eğitimine başladı. Daha sonra Perugino'nun yanında çıraklık yaptı. 1504'te Floransa'ya giderek Leonardo da Vinci ve Michelangelo'nun eserlerini inceledi. 1508'de Papa II. Julius tarafından Roma'ya davet edildi ve burada en önemli eserlerini üretti.</p>
+        </section>
+
+        <section id="eserler" class="content-section">
+            <h2>Önemli Eserleri</h2>
+            <div class="artwork-grid">
+                <div class="artwork-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Raffaello_Sanzio_-_Scuola_di_Atene.jpg" alt="Atina Okulu" loading="lazy">
+                    <h3>Atina Okulu</h3>
+                    <p>1509-1511 yılları arasında Vatikan'daki Stanza della Segnatura için yapılan bu fresk, antik Yunan filozoflarını bir araya getiren büyük bir kompozisyondur. Perspektif kullanımı ve figürlerin dengeli yerleşimiyle ünlüdür.</p>
+                </div>
+                <div class="artwork-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Raffaello_Sanzio_-_Madonna_del_Granduca_-_Google_Art_Project.jpg" alt="Madonna del Granduca" loading="lazy">
+                    <h3>Madonna del Granduca</h3>
+                    <p>1505 yılında yapılan bu tablo, Raphael'in en ünlü Madonna tasvirlerinden biridir. Zarif kompozisyonu ve yumuşak renk geçişleriyle dikkat çeker.</p>
+                </div>
+                <div class="artwork-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Raffaello_Sanzio_-_La_trasfigurazione_-_Google_Art_Project.jpg" alt="Transfigürasyon" loading="lazy">
+                    <h3>Transfigürasyon</h3>
+                    <p>1516-1520 yılları arasında yapılan bu tablo, Raphael'in son eseridir. İsa'nın göğe yükselişini ve alt kısımda bir mucizeyi tasvir eder.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="teknik" class="content-section">
+            <h2>Sanat Teknikleri</h2>
+            <p>Raphael'in sanat anlayışı, mükemmel denge ve uyum üzerine kuruludur. Kompozisyonlarında altın oranı kullanarak ideal bir görsel düzen yaratmıştır. Figürlerin yerleşimi ve mekan kullanımı, resimlerine derinlik ve hareket katmıştır.</p>
+            <p>Renk kullanımında Leonardo'nun sfumato tekniğinden etkilenmiş, ancak kendi tarzını geliştirmiştir. Fresk ve yağlı boya tekniklerinde ustalaşmış, her iki alanda da başyapıtlar üretmiştir.</p>
+        </section>
+
+        <section id="etki" class="content-section">
+            <h2>Sanat Tarihine Etkileri</h2>
+            <p>Raphael'in sanat tarihine etkisi çok büyüktür. Onun geliştirdiği kompozisyon teknikleri ve figür yerleşimi, kendisinden sonraki nesilleri derinden etkilemiştir. Özellikle portre ve dini temalı resimlerdeki başarısı, Rönesans sanatının en önemli örneklerinden biri olarak kabul edilir.</p>
+            <p>Mimari tasarımları ve dekoratif sanat alanındaki çalışmaları da önemlidir. Vatikan'daki freskleri ve duvar süslemeleri, dönemin en etkileyici sanat eserleri arasındadır. Raphael'in çalışmaları, klasik sanatın temel prensiplerini belirlemede önemli rol oynamıştır.</p>
+        </section>
+    </div>
+
+    <div class="scroll-to-top">↓</div>
+
+    <script>
+        const scrollButton = document.querySelector('.scroll-to-top');
+        let isScrolling = false;
+
+        window.addEventListener('load', updateScrollButton);
+        window.addEventListener('scroll', updateScrollButton);
+
+        function updateScrollButton() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollPosition === 0) {
+                scrollButton.textContent = '↓';
+                scrollButton.classList.add('visible');
+            }
+            else if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollButton.textContent = '↑';
+                scrollButton.classList.add('visible');
+            }
+            else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition === 0 ? document.body.scrollHeight : 0;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+
+        document.querySelectorAll('.navigation-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude Monet'in hayatı, eserleri, sanat teknikleri ve izlenimcilik akımına katkıları hakkında detaylı bilgiler.">
+    <meta name="keywords" content="Claude Monet, izlenimcilik, empresyonizm, sanat tarihi, resim teknikleri, nilüferler, gün doğumu">
+    <title>Claude Monet - Sanat Tarihi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Claude Monet Sayfası Özel Stilleri */
+        .background-shapes {
+            background: linear-gradient(45deg, #f0b153, #efaa32, #f58d16);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .main-content {
+            padding-top: 2rem;
+        }
+
+        .container {
+            min-height: auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .creative-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-description {
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-section {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .artist-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-image {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .artist-card:hover .artist-image img {
+            transform: scale(1.1);
+        }
+
+        .artist-content {
+            padding: 2rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .artist-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .artist-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .artist-card:hover .artist-content h2::after {
+            width: 100%;
+        }
+
+        .artist-info {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .period, .nationality, .technique {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #fff;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .period:hover, .nationality:hover, .technique:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .artist-description {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .technique-list {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .technique-list h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .technique-list h3::before {
+            content: '🎨';
+            font-size: 1.2rem;
+        }
+
+        .technique-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .technique-list li {
+            padding: 0.8rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .technique-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .famous-works {
+            display: grid;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .work-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .work-item h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            width: 100%;
+        }
+
+        .work-item p {
+            color: #fff;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .artist-card {
+                grid-template-columns: 1fr;
+            }
+
+            .artist-image {
+                width: 100%;
+                height: 250px;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .artist-content {
+                padding: 1.5rem;
+            }
+
+            .artist-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .artist-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .technique-list, .famous-works {
+                padding: 1rem;
+            }
+
+            .technique-list ul {
+                grid-template-columns: 1fr;
+            }
+
+            .creative-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animasyonlar */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Özel Efektler */
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(240, 177, 83, 0.2), rgba(239, 170, 50, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .artist-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Scroll Bar Özelleştirmesi */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(240, 177, 83, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(239, 170, 50, 0.5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(239, 170, 50, 0.7);
+        }
+
+        /* Navbar Link Stilleri */
+        .hidden-nav-links a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .hidden-nav-links a:hover {
+            color: #f58d16;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <nav class="hidden-nav">
+        <div class="hidden-nav-content">
+            <div class="hidden-nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="klasik-sanat.html">Klasik Sanat</a>
+                <a href="dijital-sanat.html">Dijital Sanat</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="teknikler.html">Sanat Teknikleri</a>
+                <a href="blog.html">Blog</a>
+                <a href="arastirmalar.html">Araştırmalar</a>
+                <a href="kaynaklar.html">Kaynaklar</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="creative-title">Claude Monet (1840-1926)</h1>
+            <p class="page-description">İzlenimcilik akımının kurucusu ve en önemli temsilcilerinden biri olan Claude Monet'in hayatı, eserleri ve sanat anlayışı</p>
+        </div>
+
+        <div class="content-sections">
+            <section class="artist-section">
+                <article class="artist-card">
+                    <div class="artist-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_1899_Nadar_crop.jpg/800px-Claude_Monet_1899_Nadar_crop.jpg" alt="Claude Monet">
+                    </div>
+                    <div class="artist-content">
+                        <h2>Hayatı ve Sanat Yolculuğu</h2>
+                        <div class="artist-info">
+                            <span class="period">İzlenimcilik</span>
+                            <span class="nationality">Fransız</span>
+                        </div>
+                        <p class="artist-description">
+                            Claude Monet, 14 Kasım 1840'ta Paris'te doğdu. Genç yaşta resme olan yeteneği fark edildi ve 1859'da Paris'e giderek sanat eğitimi almaya başladı. İlk yıllarında gerçekçi tarzda resimler yapan Monet, zamanla doğanın değişen ışık etkilerini yakalamaya odaklandı. 1874'te düzenlediği sergide "İzlenim: Gün Doğumu" adlı eseriyle izlenimcilik akımına adını verdi. Yaşamının son yıllarını Giverny'deki bahçesinde geçiren Monet, nilüfer serisi ve Rouen Katedrali resimleriyle sanat tarihine damgasını vurdu.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Sanat Teknikleri ve Yaklaşımı</h2>
+                        <div class="artist-info">
+                            <span class="technique">Açık Hava Resmi</span>
+                            <span class="technique">Işık ve Renk</span>
+                        </div>
+                        <p class="artist-description">
+                            Monet'nin en önemli teknik özelliklerinden biri, resimlerini açık havada yapmasıydı. Bu yaklaşım, doğanın değişen ışık etkilerini doğrudan tuvaline yansıtmasını sağladı. Kısa ve hızlı fırça darbeleri kullanarak, ışığın yarattığı izlenimleri yakalamaya çalıştı. Renk kullanımında gölgeleri siyah yerine mavi ve mor tonlarıyla ifade etti. Aynı konuyu farklı ışık koşullarında resimleyerek, ışığın değişimini belgelemeyi amaçladı.
+                        </p>
+                        <div class="technique-list">
+                            <h3>Öne Çıkan Teknikler</h3>
+                            <ul>
+                                <li>Plein air (açık hava) resim tekniği</li>
+                                <li>Işık ve gölge kontrastı</li>
+                                <li>Renkli gölgeler kullanımı</li>
+                                <li>Seri resimleme yaklaşımı</li>
+                                <li>Hızlı fırça darbeleri</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Önemli Eserleri</h2>
+                        <div class="famous-works">
+                            <div class="work-item">
+                                <h3>İzlenim: Gün Doğumu (1872)</h3>
+                                <p>İzlenimcilik akımına adını veren bu eser, Monet'nin Le Havre limanında gün doğumunu resmettiği bir tablodur. Turuncu ve mavi tonların hakim olduğu eser, güneşin su üzerindeki yansımalarını ustalıkla yansıtır.</p>
+                            </div>
+                            <div class="work-item">
+                                <h3>Nilüferler Serisi (1899-1926)</h3>
+                                <p>Monet'nin Giverny'deki bahçesindeki nilüfer havuzunu konu alan bu seri, sanatçının en önemli çalışmalarından biridir. Su yüzeyindeki yansımalar ve nilüferlerin renkleri, Monet'nin ışık ve renk anlayışının doruğunu temsil eder.</p>
+                            </div>
+                            <div class="work-item">
+                                <h3>Rouen Katedrali Serisi (1892-1894)</h3>
+                                <p>Farklı ışık koşullarında aynı katedrali resimleyen bu seri, Monet'nin ışığın değişimini belgeleme çabasının en iyi örneklerinden biridir. Günün farklı saatlerinde katedralin farklı görünümlerini yansıtır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Sanat Tarihine Etkisi</h2>
+                        <p class="artist-description">
+                            Monet'nin sanat anlayışı, modern sanatın gelişiminde çığır açıcı bir rol oynadı. İzlenimcilik akımının öncüsü olarak, sanatçıların doğayı ve ışığı yeni bir gözle yorumlamalarını sağladı. Renk kullanımı ve fırça tekniği, sonraki nesil sanatçıları derinden etkiledi. Özellikle nilüfer serisi, soyut sanatın gelişimine öncülük etti. Monet'nin eserleri, günümüzde dünyanın en prestijli müzelerinde sergilenmekte ve sanat tarihinin en değerli hazineleri arasında yer almaktadır.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <div class="scroll-to-top">↓</div>
+
+    <script>
+        // Hidden Navigation
+        const hiddenNav = document.querySelector('.hidden-nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                hiddenNav.classList.add('visible');
+            } else {
+                hiddenNav.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Scroll to Top Button
+        const scrollButton = document.querySelector('.scroll-to-top');
+        let isScrolling = false;
+
+        window.addEventListener('load', updateScrollButton);
+        window.addEventListener('scroll', updateScrollButton);
+
+        function updateScrollButton() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollPosition === 0) {
+                scrollButton.textContent = '↓';
+                scrollButton.classList.add('visible');
+            }
+            else if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollButton.textContent = '↑';
+                scrollButton.classList.add('visible');
+            }
+            else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition === 0 ? document.body.scrollHeight : 0;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,371 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1a5276, #2874a6, #1e8449);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+}
+
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.creative-title {
+    color: white;
+    font-size: 2.5rem;
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-in-out;
+    text-align: center;
+    max-width: 800px;
+}
+
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(45deg, #2c3e50, #3498db, #2ecc71);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    transition: background 0.3s ease;
+}
+
+.cube {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+    animation: float 20s infinite linear;
+    backdrop-filter: blur(5px);
+}
+
+.cube:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; transform: rotate(45deg); }
+.cube:nth-child(2) { top: 55%; left: 75%; animation-delay: 7s; transform: rotate(-30deg); }
+.cube:nth-child(3) { top: 35%; left: 40%; animation-delay: 14s; transform: rotate(15deg); }
+.cube:nth-child(4) { top: 70%; left: 25%; animation-delay: 3s; transform: rotate(-45deg); }
+.cube:nth-child(5) { top: 25%; left: 65%; animation-delay: 10s; transform: rotate(60deg); }
+
+.content-sections {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+}
+
+.section {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.section h2 {
+    color: white;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hidden-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden-nav.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden-nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden-nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hidden-nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.hidden-nav-links a:hover {
+    color: #3498db;
+}
+
+.blog-grid, .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-card, .research-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover, .research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.blog-card h3, .research-card h3 {
+    color: white;
+    font-size: 1.3em;
+    margin: 10px 0;
+}
+
+.blog-card p, .research-card p {
+    color: #e6e6e6;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.blog-card .date {
+    color: #2ecc71;
+    font-size: 0.9em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+body:has(.main-content) .scroll-to-top {
+    display: none;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.animated-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    transform: scale(1.5);
+    position: relative;
+    z-index: 1;
+}
+
+#klasikSanat {
+    background: linear-gradient(45deg, #1a5276, #2874a6, #1e8449);
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease infinite;
+}
+
+#dijitalSanat {
+    background: linear-gradient(45deg, #1a5276, #2874a6, #1e8449);
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease infinite;
+}
+
+.animated-button:hover {
+    transform: scale(1.5) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+#klasikSanat:hover {
+    background: linear-gradient(45deg, #800020, #000000);
+    background-size: 200% 200%;
+}
+
+#dijitalSanat:hover {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    background-size: 200% 200%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0% { transform: rotate(0deg) translateY(0) scale(1); opacity: 0.3; }
+    25% { transform: rotate(90deg) translateY(-20px) scale(1.1); opacity: 0.5; }
+    50% { transform: rotate(180deg) translateY(0) scale(1); opacity: 0.3; }
+    75% { transform: rotate(270deg) translateY(20px) scale(0.9); opacity: 0.5; }
+    100% { transform: rotate(360deg) translateY(0) scale(1); opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .button-group {
+        gap: 50px;
+    }
+
+    .animated-button {
+        transform: scale(1.2);
+    }
+
+    .animated-button:hover {
+        transform: scale(1.2) translateY(-5px);
+    }
+
+    .creative-title {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+
+    .cube {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hidden-nav-links {
+        gap: 1rem;
+    }
+
+    .hidden-nav-links a {
+        font-size: 1rem;
+    }
+
+    .content-sections {
+        padding: 2rem 1rem;
+    }
+} 

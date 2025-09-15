@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanat teknikleri hakkında ilham verici ve detaylı araştırmalar. Yağlı boya, suluboya, kolaj, dijital sanat ve daha fazlası.">
+    <meta name="keywords" content="sanat teknikleri, yağlı boya, suluboya, kolaj, dijital sanat, gravür, fırça, sanat araştırmaları">
+    <title>Sanat Teknikleri - Sanat Tarihi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lux-purple: #42275a;
+            --lux-purple2: #734b6d;
+            --lux-gold: #ffd700;
+            --lux-champagne: #fff8e1;
+            --bg-gradient: linear-gradient(120deg, #42275a 0%, #734b6d 50%, #ffd700 100%);
+            --card-bg: #fff8e1cc;
+            --modal-bg: #fff8e1;
+            --shadow: 0 4px 24px 0 rgba(66,39,90,0.10);
+            --transition: all 0.3s cubic-bezier(.4,2,.6,1);
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', 'Playfair Display', serif;
+            background: var(--bg-gradient), url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            background-blend-mode: lighten;
+            background-size: cover, auto;
+            min-height: 100vh;
+            color: var(--lux-purple2);
+        }
+        .navbar {
+            width: 100%;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+        }
+        .navbar .navbar-content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        .navbar .navbar-logo {
+            font-size: 1.6rem;
+            font-family: 'Unbounded', 'Playfair Display', serif;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15), 0 2px 8px #fff3;
+            text-transform: uppercase;
+        }
+        .navbar .navbar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .navbar .navbar-links a:hover {
+            background: #fff3;
+            color: #ffd700;
+            transform: translateY(-2px) scale(1.05);
+        }
+        .main-content {
+            padding-top: 90px;
+            min-height: 100vh;
+        }
+        .techniques-header {
+            text-align: center;
+            padding: 3rem 1rem 2rem 1rem;
+            background: none;
+            color: #fff;
+            border-radius: 0 0 32px 32px;
+        }
+        .techniques-title {
+            font-size: 2.8rem;
+            font-family: 'Unbounded', 'Playfair Display', serif;
+            margin-bottom: 1.2rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 2px 2px 8px #42275a55, 0 2px 8px #fff3;
+            text-transform: uppercase;
+        }
+        .techniques-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.18rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.95;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.18);
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+        .techniques-grid {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .technique-card {
+            background: var(--card-bg);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px 0 rgba(66,39,90,0.13);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            min-height: 440px;
+            position: relative;
+            border: 3px solid var(--lux-purple2);
+            background-clip: padding-box;
+        }
+        .technique-card:hover {
+            transform: translateY(-10px) scale(1.04) rotate(-1deg);
+            border-image: linear-gradient(90deg, var(--lux-gold), var(--lux-purple2), var(--lux-gold)) 1;
+            box-shadow: 0 12px 40px 0 #ffd70055, 0 2px 24px 0 #42275a33;
+            background: #fffbeedd;
+        }
+        .technique-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #eee;
+            filter: grayscale(0.1) contrast(1.1) brightness(1.08);
+            transition: filter 0.4s;
+        }
+        .technique-card:hover .technique-image {
+            filter: none;
+        }
+        .technique-info {
+            padding: 1.7rem 1.3rem 1.3rem 1.3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .technique-title {
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--lux-purple);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #ffd70033;
+        }
+        .technique-short {
+            font-size: 1.05rem;
+            color: var(--lux-purple2);
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+        .read-more-btn {
+            align-self: flex-end;
+            background: linear-gradient(90deg, var(--lux-gold), var(--lux-purple2));
+            color: var(--lux-purple);
+            border: none;
+            border-radius: 16px;
+            padding: 0.5rem 1.3rem;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px 0 #ffd70033;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .read-more-btn:hover {
+            background: linear-gradient(90deg, var(--lux-purple2), var(--lux-gold));
+            color: var(--lux-gold);
+            transform: scale(1.09);
+            box-shadow: 0 2px 16px #ffd70077;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(66,39,90,0.18);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: linear-gradient(120deg, #fff8e1 0%, #ffd700 100%);
+            border-radius: 28px;
+            max-width: 650px;
+            width: 95vw;
+            box-shadow: 0 12px 48px 0 #42275a33, 0 2px 24px 0 #ffd70033;
+            padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+            position: relative;
+            animation: modalIn 0.4s cubic-bezier(.4,2,.6,1);
+            border: 4px solid var(--lux-gold);
+        }
+        @keyframes modalIn {
+            from { transform: translateY(40px) scale(0.95); opacity: 0; }
+            to { transform: none; opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: linear-gradient(90deg, var(--lux-gold), var(--lux-purple2));
+            color: var(--lux-purple2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px 0 #ffd70033;
+        }
+        .close-modal:hover {
+            background: linear-gradient(90deg, var(--lux-purple2), var(--lux-gold));
+            color: var(--lux-gold);
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--lux-purple);
+            margin-bottom: 1.1rem;
+            background: linear-gradient(90deg, var(--lux-gold) 10%, var(--lux-purple2) 60%, var(--lux-gold) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 12px #fff7);
+            text-shadow: 0 2px 8px #ffd70044, 0 0px 1px #fff8e1;
+            text-transform: uppercase;
+        }
+        .modal-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.3rem;
+            box-shadow: 0 4px 24px 0 #ffd70022;
+        }
+        .modal-description {
+            font-size: 1.12rem;
+            color: var(--lux-purple2);
+            line-height: 1.7;
+        }
+        @media (max-width: 768px) {
+            .techniques-header {
+                padding: 2rem 0.5rem 1.5rem 0.5rem;
+            }
+            .techniques-title {
+                font-size: 2rem;
+            }
+            .techniques-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">Sanat Teknikleri</div>
+            <div class="navbar-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="klasik-sanat.html">Klasik Sanat</a>
+                <a href="dijital-sanat.html">Dijital Sanat</a>
+                <a href="sanatcilar.html">Sanatçılar</a>
+                <a href="teknikler.html">Sanat Teknikleri</a>
+                <a href="blog.html">Blog</a>
+                <a href="arastirmalar.html">Araştırmalar</a>
+                <a href="kaynaklar.html">Kaynaklar</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <header class="techniques-header">
+            <h1 class="techniques-title">Sanat Teknikleri</h1>
+            <p class="techniques-description">Sanatın büyülü dünyasında kullanılan teknikleri keşfedin. Her bir teknik, sanatçının hayal gücünü tuvale, kağıda ya da dijital ekrana aktarmasında benzersiz bir yol sunar.</p>
+        </header>
+        <section class="techniques-grid">
+            <!-- Yağlı Boya -->
+            <div class="technique-card" data-technique="oil">
+                <img src="https://cdn-blog.superprof.com/blog_tr/wp-content/uploads/2023/10/yagli-boya-gecisleri.jpg" alt="Yağlı Boya" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Yağlı Boya</div>
+                    <div class="technique-short">Renklerin zenginliği ve katmanlı dokusuyla klasik resmin vazgeçilmez tekniği.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+            <!-- Suluboya -->
+            <div class="technique-card" data-technique="watercolor">
+                <img src="https://www.posterevim.com.tr/wp-content/uploads/2020/08/people-2013447_1920-567x800.jpg" alt="Suluboya" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Suluboya</div>
+                    <div class="technique-short">Şeffaflık ve akışkanlık ile hafif, şiirsel kompozisyonlar yaratmanın yolu.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+            <!-- Kolaj -->
+            <div class="technique-card" data-technique="collage">
+                <img src="https://mehmetakerilkokulu.meb.k12.tr/meb_iys_dosyalar/16/15/737322/resimler/2020_03/k_04142039_kolaj_resim_calismasi_elma.jpg" alt="Kolaj" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Kolaj</div>
+                    <div class="technique-short">Farklı malzemelerin bir araya getirilmesiyle yeni anlamlar ve katmanlar oluşturma sanatı.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+            <!-- Dijital Sanat -->
+            <div class="technique-card" data-technique="digital">
+                <img src="https://kulturveyasam.com/wp-content/uploads/2022/01/dijital_sanat-05-copy.jpg" alt="Dijital Sanat" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Dijital Sanat</div>
+                    <div class="technique-short">Teknolojinin sunduğu sonsuz olanaklarla yaratıcı ifade biçimlerinin dijital dünyadaki yansıması.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+            <!-- Gravür -->
+            <div class="technique-card" data-technique="engraving">
+                <img src="https://umutium.com/wp-content/uploads/2021/12/gravur-baski-teknigi.jpg" alt="Gravür" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Gravür</div>
+                    <div class="technique-short">Yüzeyin oyulmasıyla elde edilen detaylı ve etkileyici baskı tekniği.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+            <!-- Fresk -->
+            <div class="technique-card" data-technique="fresco">
+                <img src="https://mimariterim.com/wp-content/uploads/2021/11/fresk.jpg" alt="Fresk" class="technique-image">
+                <div class="technique-info">
+                    <div class="technique-title">Fresk</div>
+                    <div class="technique-short">Islak sıva üzerine yapılan resimlerle duvarlara ölümsüzlük kazandıran antik bir teknik.</div>
+                    <button class="read-more-btn">Daha fazla oku</button>
+                </div>
+            </div>
+        </section>
+        <!-- Modal -->
+        <div class="modal" id="techniqueModal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <img src="" alt="" class="modal-image">
+                <div class="modal-title"></div>
+                <div class="modal-description"></div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Teknik detayları
+        const techniqueDetails = {
+            oil: {
+                title: 'Yağlı Boya',
+                image: 'https://cdn-blog.superprof.com/blog_tr/wp-content/uploads/2023/10/yagli-boya-gecisleri.jpg',
+                description: `Yağlı boya, pigmentlerin keten tohumu yağı gibi yağlarla karıştırılmasıyla elde edilen ve yüzyıllardır sanatçılar tarafından tercih edilen bir resim tekniğidir. Renklerin zenginliği, katman katman uygulanabilmesi ve uzun süre kurumadan çalışılabilmesi, sanatçılara detaylı ve derinlikli kompozisyonlar yaratma imkanı sunar. Rönesans'tan günümüze kadar birçok başyapıt bu teknikle üretilmiştir.`
+            },
+            watercolor: {
+                title: 'Suluboya',
+                image: 'https://www.posterevim.com.tr/wp-content/uploads/2020/08/people-2013447_1920-567x800.jpg',
+                description: `Suluboya, pigmentlerin su ile inceltilerek kağıda uygulanmasıyla yapılan bir resim tekniğidir. Şeffaf ve akışkan yapısı sayesinde hafif, şiirsel ve spontane eserler ortaya çıkar. Suluboya, doğa manzaraları ve illüstrasyonlarda sıkça tercih edilir. Katman katman uygulama ve renk geçişleriyle benzersiz efektler elde edilebilir.`
+            },
+            collage: {
+                title: 'Kolaj',
+                image: 'https://mehmetakerilkokulu.meb.k12.tr/meb_iys_dosyalar/16/15/737322/resimler/2020_03/k_04142039_kolaj_resim_calismasi_elma.jpg',
+                description: `Kolaj, farklı malzeme ve objelerin bir araya getirilerek yeni bir bütün oluşturulması esasına dayanır. Kağıt, kumaş, fotoğraf, gazete kupürleri gibi çeşitli materyaller kullanılarak yapılan kolajlar, modern sanatın önemli ifade biçimlerinden biridir. Dadaizm ve Kübizm akımlarında sıkça kullanılmıştır.`
+            },
+            digital: {
+                title: 'Dijital Sanat',
+                image: 'https://kulturveyasam.com/wp-content/uploads/2022/01/dijital_sanat-05-copy.jpg',
+                description: `Dijital sanat, bilgisayar ve dijital teknolojiler kullanılarak üretilen sanat eserlerini kapsar. Dijital resim, 3D modelleme, animasyon, dijital kolaj ve interaktif sanat gibi birçok alt dalı vardır. Sanatçılar, dijital araçlarla sınırları zorlayarak yenilikçi ve etkileşimli eserler ortaya koyar.`
+            },
+            engraving: {
+                title: 'Gravür',
+                image: 'https://umutium.com/wp-content/uploads/2021/12/gravur-baski-teknigi.jpg',
+                description: `Gravür, metal, tahta veya taş yüzeylerin oyulmasıyla elde edilen baskı tekniğidir. Oyulan yüzey mürekkeple kaplanır ve kağıda basılır. Detaylı çizgiler ve dokular elde etmek için idealdir. Rönesans döneminde kitap illüstrasyonlarında ve sanat eserlerinde yaygın olarak kullanılmıştır.`
+            },
+            fresco: {
+                title: 'Fresk',
+                image: 'https://mimariterim.com/wp-content/uploads/2021/11/fresk.jpg',
+                description: `Fresk, ıslak sıva üzerine pigmentlerin uygulanmasıyla yapılan bir duvar resim tekniğidir. Sıva kurudukça boya yüzeye sabitlenir ve kalıcı hale gelir. Antik Roma, Bizans ve Rönesans dönemlerinde kilise ve saray duvarlarını süslemek için kullanılmıştır. Michelangelo'nun Sistine Şapeli freskleri bu tekniğin en ünlü örneklerindendir.`
+            }
+        };
+        // Modal işlevi
+        const cards = document.querySelectorAll('.technique-card');
+        const modal = document.getElementById('techniqueModal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalDesc = modal.querySelector('.modal-description');
+        const closeModal = modal.querySelector('.close-modal');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const key = card.getAttribute('data-technique');
+                const data = techniqueDetails[key];
+                modalTitle.textContent = data.title;
+                modalImage.src = data.image;
+                modalImage.alt = data.title;
+                modalDesc.textContent = data.description;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        // "Daha fazla oku" butonları kart tıklamasını tetikler
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                btn.closest('.technique-card').click();
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pablo Picasso'nun hayatı, eserleri, sanat teknikleri ve kübizm ile modern sanata katkıları hakkında detaylı bilgiler.">
+    <meta name="keywords" content="Pablo Picasso, kübizm, modern sanat, sanat tarihi, resim teknikleri, Guernica, Avignonlu Kadınlar, Ağlayan Kadın, Yaşlı Gitarist">
+    <title>Pablo Picasso - Sanat Tarihi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(45deg, #f0b153, #efaa32, #f58d16);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        .background-artist {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.22;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/800px-Pablo_picasso_1.jpg') center center/cover no-repeat;
+            filter: blur(1.5px) grayscale(10%);
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .navbar {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+        }
+        .navbar .navbar-content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        .navbar .navbar-logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+        .navbar .navbar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .navbar .navbar-links a:hover {
+            background: #fff3;
+            color: #f58d16;
+            transform: translateY(-2px) scale(1.05);
+        }
+        .main-content { padding-top: 90px; }
+        .container { min-height: auto; padding: 2rem; text-align: center; }
+        .creative-title { font-size: 3rem; margin-bottom: 1rem; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .page-description { color: #fff; font-size: 1.2rem; text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .artist-section { display: flex; flex-direction: column; gap: 3rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .artist-card { background: rgba(255,255,255,0.15); border-radius: 20px; overflow: hidden; display: flex; flex-direction: row; align-items: stretch; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; position: relative; min-height: 320px; }
+        .artist-card:not(.with-image) { flex-direction: column; min-height: unset; }
+        .artist-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        .artist-image { width: 320px; min-width: 220px; max-width: 340px; height: 320px; overflow: hidden; position: relative; border-radius: 20px 0 0 20px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .artist-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+        .artist-card:hover .artist-image img { transform: scale(1.1); }
+        .artist-content { padding: 2.5rem 2rem 2.5rem 2rem; color: #fff; position: relative; z-index: 1; text-align: left; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .artist-content h2 { font-size: 2rem; margin-bottom: 1rem; color: #fff; font-family: 'Playfair Display', serif; position: relative; display: block; text-align: left; width: 100%; }
+        .artist-content h2::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 2px; background: #fff; transition: width 0.3s ease; }
+        .artist-card:hover .artist-content h2::after { width: 100px; }
+        .artist-info { display: flex; gap: 1rem; margin-bottom: 1.5rem; justify-content: flex-start; }
+        .period, .nationality, .technique { background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: #fff; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .period:hover, .nationality:hover, .technique:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+        .artist-description { line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem; position: relative; padding: 0; text-align: left; width: 100%; max-width: 800px; margin-left: 0; margin-right: 0; }
+        .technique-list { background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; text-align: left; width: 100%; max-width: 800px; margin-left: 0; margin-right: 0; }
+        .technique-list h3 { color: #fff; font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; display: flex; align-items: center; justify-content: flex-start; gap: 0.5rem; }
+        .technique-list h3::before { content: '🎨'; font-size: 1.2rem; }
+        .technique-list ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .technique-list li { padding: 0.8rem; border-radius: 10px; background: rgba(255,255,255,0.1); color: #fff; transition: all 0.3s ease; text-align: left; }
+        .technique-list li:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+        .famous-works { display: grid; gap: 2rem; max-width: 800px; margin: 0 auto; }
+        .work-item { background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; text-align: left; width: 100%; display: flex; gap: 2rem; align-items: center; }
+        .work-item img { width: 180px; height: 180px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); background: #fff; }
+        .work-item-content { flex: 1; }
+        .work-item h3 { color: #fff; font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-align: left; width: 100%; }
+        .work-item p { color: #fff; line-height: 1.6; font-size: 1.1rem; text-align: left; width: 100%; max-width: 600px; margin: 0; }
+        @media (max-width: 900px) { .navbar .navbar-content { flex-direction: column; gap: 0.5rem; padding: 0 1rem; } .artist-card, .artist-card.with-image { flex-direction: column; min-height: unset; } .artist-image { width: 100%; height: 250px; border-radius: 20px 20px 0 0; max-width: 100%; } .artist-content { padding: 1.5rem; } .work-item { flex-direction: column; gap: 1rem; align-items: flex-start; } .work-item img { width: 100%; height: 180px; } }
+        @media (max-width: 600px) { .container { padding: 1rem; } .artist-section { padding: 1rem; } .artist-card { border-radius: 12px; } .artist-content h2 { font-size: 1.2rem; } .creative-title { font-size: 1.5rem; } .navbar .navbar-links { gap: 0.5rem; } .navbar .navbar-content { padding: 0 0.5rem; } }
+        .artist-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(240,177,83,0.2), rgba(239,170,50,0.2)); opacity: 0; transition: opacity 0.3s ease; }
+        .artist-card:hover::before { opacity: 1; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(240,177,83,0.1); }
+        ::-webkit-scrollbar-thumb { background: rgba(239,170,50,0.5); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(239,170,50,0.7); }
+    </style>
+</head>
+<body>
+    <div class="background-artist"></div>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">Pablo Picasso</div>
+            <div class="navbar-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="klasik-sanat.html">Klasik Sanat</a>
+                <a href="dijital-sanat.html">Dijital Sanat</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="teknikler.html">Sanat Teknikleri</a>
+                <a href="blog.html">Blog</a>
+                <a href="arastirmalar.html">Araştırmalar</a>
+                <a href="kaynaklar.html">Kaynaklar</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <h1 class="creative-title">Pablo Picasso (1881-1973)</h1>
+            <p class="page-description">Kübizmin kurucusu ve 20. yüzyılın en etkili sanatçılarından biri olan Pablo Picasso'nun hayatı, eserleri ve sanat anlayışı</p>
+        </div>
+        <div class="content-sections">
+            <section class="artist-section">
+                <article class="artist-card with-image">
+                    <div class="artist-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/800px-Pablo_picasso_1.jpg" alt="Pablo Picasso">
+                    </div>
+                    <div class="artist-content">
+                        <h2>Hayatı ve Sanat Yolculuğu</h2>
+                        <div class="artist-info">
+                            <span class="period">Kübizm</span>
+                            <span class="nationality">İspanyol</span>
+                        </div>
+                        <p class="artist-description">
+                            Pablo Picasso, 25 Ekim 1881'de İspanya'nın Málaga kentinde doğdu. Sanat eğitimine babasının rehberliğinde başladı. Barselona ve Paris'te geçirdiği yıllar, sanatında büyük değişimlere yol açtı. Mavi ve Pembe Dönemler'in ardından Georges Braque ile birlikte Kübizm akımını başlattı. Hayatı boyunca resim, heykel, seramik ve grafik sanatlar gibi birçok alanda üretim yaptı. 1973'te Fransa'da hayatını kaybetti.
+                        </p>
+                    </div>
+                </article>
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Sanat Teknikleri ve Yaklaşımı</h2>
+                        <div class="artist-info">
+                            <span class="technique">Kübizm</span>
+                            <span class="technique">Kolaj</span>
+                        </div>
+                        <p class="artist-description">
+                            Picasso'nun sanatında biçimlerin parçalanması, çoklu bakış açıları ve geometrik formlar öne çıkar. Kübizm ile nesneleri farklı açılardan aynı anda gösterdi. Kolaj tekniğini resme kazandırdı. Renk, çizgi ve kompozisyonu cesurca kullandı. Farklı dönemlerinde klasik, sürrealist ve soyut yaklaşımlar da benimsedi.
+                        </p>
+                        <div class="technique-list">
+                            <h3>Öne Çıkan Teknikler</h3>
+                            <ul>
+                                <li>Kübizm ve geometrik formlar</li>
+                                <li>Kolaj ve karma teknikler</li>
+                                <li>Çoklu bakış açısı</li>
+                                <li>Farklı dönemlerde stil değişimi</li>
+                                <li>Heykel ve seramikte yenilik</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Önemli Eserleri</h2>
+                        <div class="famous-works">
+                            <div class="work-item">
+                                <img src="https://www.moma.org/media/W1siZiIsIjM2NjQwIl0sWyJwIiwiY29udmVydCIsIi1yZXNpemUgODIweDgwMCJdXQ.jpg?sha=6b2e2e2e2e2e2e2e" alt="Avignonlu Kadınlar">
+                                <div class="work-item-content">
+                                    <h3>Avignonlu Kadınlar (1907)</h3>
+                                    <p>Modern sanatın dönüm noktalarından biri olan bu tablo, kübizmin başlangıcı olarak kabul edilir. Biçimlerin parçalanması ve maskelerle yapılan yüzler dikkat çeker.</p>
+                                </div>
+                            </div>
+                            <div class="work-item">
+                                <img src="https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg" alt="Guernica">
+                                <div class="work-item-content">
+                                    <h3>Guernica (1937)</h3>
+                                    <p>İspanya İç Savaşı'nda Guernica kasabasının bombalanmasını konu alan bu dev tablo, savaşın dehşetini ve acısını çarpıcı bir şekilde yansıtır.</p>
+                                </div>
+                            </div>
+                            <div class="work-item">
+                                <img src="https://www.pablopicasso.org/images/paintings/the-weeping-woman.jpg" alt="Ağlayan Kadın">
+                                <div class="work-item-content">
+                                    <h3>Ağlayan Kadın (1937)</h3>
+                                    <p>Picasso'nun "Guernica" tablosundan esinlenerek yaptığı bu eser, savaşın ve acının evrensel simgelerinden biri haline gelmiştir.</p>
+                                </div>
+                            </div>
+                            <div class="work-item">
+                                <img src="https://www.pablopicasso.org/images/paintings/the-old-guitarist.jpg" alt="Yaşlı Gitarist">
+                                <div class="work-item-content">
+                                    <h3>Yaşlı Gitarist (1903)</h3>
+                                    <p>Mavi Dönem'in en bilinen eserlerinden biri olan bu tablo, yalnızlık ve yoksulluk temalarını işler.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="artist-card">
+                    <div class="artist-content">
+                        <h2>Sanat Tarihine Etkisi</h2>
+                        <p class="artist-description">
+                            Picasso'nun sanat anlayışı, 20. yüzyıl sanatının yönünü değiştirmiştir. Kübizm ve kolaj teknikleriyle modern sanatın temellerini atmıştır. Farklı dönemlerdeki yenilikçi yaklaşımları, pek çok sanatçıya ilham vermiştir. Eserleri, dünyanın en önemli müzelerinde sergilenmekte ve sanat tarihinde eşsiz bir yere sahiptir.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+    <div class="scroll-to-top">↓</div>
+    <script>
+        // Scroll to Top Button
+        const scrollButton = document.querySelector('.scroll-to-top');
+        let isScrolling = false;
+        window.addEventListener('load', updateScrollButton);
+        window.addEventListener('scroll', updateScrollButton);
+        function updateScrollButton() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            if (scrollPosition === 0) {
+                scrollButton.textContent = '↓';
+                scrollButton.classList.add('visible');
+            }
+            else if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollButton.textContent = '↑';
+                scrollButton.classList.add('visible');
+            }
+            else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+        scrollButton.addEventListener('click', () => {
+            if (isScrolling) return;
+            isScrolling = true;
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition === 0 ? document.body.scrollHeight : 0;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
